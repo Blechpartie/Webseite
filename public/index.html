@@ -99,17 +99,15 @@
       <div class="container">
         <h2 class="section-title">Galerie</h2>
 
-        <!-- Weitere Fotos einfach nach img/galerie/ legen und hier einen <figure>-Block ergänzen -->
+        <!-- Weitere Fotos: großes Bild nach img/galerie/, quadratisches Vorschaubild (480×480) nach img/galerie/klein/, dann hier einen <figure>-Block ergänzen -->
         <div class="gallery">
-          <figure class="photo"><a href="img/galerie/gruppenfoto.jpg"><img src="img/galerie/gruppenfoto.jpg" alt="Gruppenfoto der Blechpartie in Tracht mit Instrumenten" loading="lazy" width="1050" height="1400"></a></figure>
-          <figure class="photo"><a href="img/galerie/aufspielen.jpg"><img src="img/galerie/aufspielen.jpg" alt="Die Blechpartie spielt sitzend auf der Musikantenbühne unter dem bemalten Gewölbe" loading="lazy" width="1400" height="1050"></a></figure>
-          <figure class="photo"><a href="img/galerie/haende-hoch.jpg"><img src="img/galerie/haende-hoch.jpg" alt="Die Musikanten reißen nach dem Stück die Arme hoch" loading="lazy" width="1050" height="1400"></a></figure>
-          <figure class="photo"><a href="img/galerie/auftritt.jpg"><img src="img/galerie/auftritt.jpg" alt="Die Blechpartie spielt im Gewölbe eines Wirtshauses" loading="lazy" width="1050" height="1400"></a></figure>
-          <figure class="photo"><a href="img/galerie/im-stehen.jpg"><img src="img/galerie/im-stehen.jpg" alt="Die Blechpartie spielt im Stehen auf der Bühne" loading="lazy" width="1400" height="1050"></a></figure>
-          <figure class="photo"><a href="img/galerie/tuba-banner.jpg"><img src="img/galerie/tuba-banner.jpg" alt="Tuba hinter dem Blechpartie-Banner" loading="lazy" width="1050" height="1400"></a></figure>
-          <figure class="photo"><a href="img/galerie/probe.jpg"><img src="img/galerie/probe.jpg" alt="Die Blechpartie mit Max Obermüller beim Probeseminar" loading="lazy" width="1050" height="1400"></a></figure>
-          <figure class="photo"><a href="img/galerie/stammtisch.jpg"><img src="img/galerie/stammtisch.jpg" alt="Die Blechpartie gemütlich am Stammtisch, einer im Blechpartie-Hoodie" loading="lazy" width="1050" height="1400"></a></figure>
-          <figure class="photo"><a href="img/galerie/weste.jpg"><img src="img/galerie/weste.jpg" alt="Trachtenweste mit gesticktem Blechpartie-Logo" loading="lazy" width="1050" height="1400"></a></figure>
+          <figure class="photo"><a href="img/galerie/gruppenfoto.jpg"><img src="img/galerie/klein/gruppenfoto.jpg" alt="Gruppenfoto der Blechpartie in Tracht mit Instrumenten" loading="lazy" width="480" height="480"></a></figure>
+          <figure class="photo"><a href="img/galerie/aufspielen.jpg"><img src="img/galerie/klein/aufspielen.jpg" alt="Die Blechpartie spielt sitzend auf der Musikantenbühne unter dem bemalten Gewölbe" loading="lazy" width="480" height="480"></a></figure>
+          <figure class="photo"><a href="img/galerie/haende-hoch.jpg"><img src="img/galerie/klein/haende-hoch.jpg" alt="Die Musikanten reißen nach dem Stück die Arme hoch" loading="lazy" width="480" height="480"></a></figure>
+          <figure class="photo"><a href="img/galerie/auftritt.jpg"><img src="img/galerie/klein/auftritt.jpg" alt="Die Blechpartie spielt im Gewölbe eines Wirtshauses" loading="lazy" width="480" height="480"></a></figure>
+          <figure class="photo"><a href="img/galerie/im-stehen.jpg"><img src="img/galerie/klein/im-stehen.jpg" alt="Die Blechpartie spielt im Stehen auf der Bühne" loading="lazy" width="480" height="480"></a></figure>
+          <figure class="photo"><a href="img/galerie/tuba-banner.jpg"><img src="img/galerie/klein/tuba-banner.jpg" alt="Tuba hinter dem Blechpartie-Banner" loading="lazy" width="480" height="480"></a></figure>
+          <figure class="photo"><a href="img/galerie/probe.jpg"><img src="img/galerie/klein/probe.jpg" alt="Die Blechpartie mit Max Obermüller beim Probeseminar" loading="lazy" width="480" height="480"></a></figure>
         </div>
 
         <h3 class="sub-title">Videos</h3>
@@ -125,7 +123,7 @@
           <div class="video" data-youtube="w49NXTmfc30">
             <button class="video-consent" type="button">
               <span class="play" aria-hidden="true">▶</span>
-              <span class="video-title">Mährischer Walzer</span>
+              <span class="video-title">Liebstes Land, Burgenland</span>
               <small>Klicken zum Laden – dabei werden Daten an YouTube übertragen.</small>
             </button>
           </div>
@@ -145,6 +143,23 @@
           </div>
         </div>
         <p class="videos-empty">Videos folgen bald – bis dahin gibt's Eindrücke auf <a href="https://www.instagram.com/blechpartie/" rel="noopener" target="_blank">Instagram @blechpartie</a>.</p>
+      </div>
+    </section>
+
+    <!-- Instagram: Beiträge kommen über /api/instagram (Netlify-Funktion), Bilder werden von dieser Seite ausgeliefert -->
+    <section id="instagram" class="section section-alt">
+      <div class="container">
+        <div class="insta-head">
+          <div>
+            <h2 class="section-title">Instagram</h2>
+            <p class="section-intro">Neues von unseren Auftritten gibt's auf <a href="https://www.instagram.com/blechpartie/" rel="noopener" target="_blank">@blechpartie</a>.</p>
+          </div>
+          <a class="btn insta-follow" href="https://www.instagram.com/blechpartie/" rel="noopener" target="_blank">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg>
+            Folgt uns
+          </a>
+        </div>
+        <div class="insta-grid" id="insta-grid" hidden></div>
       </div>
     </section>
 
