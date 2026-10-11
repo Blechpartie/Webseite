@@ -65,6 +65,30 @@ const videosEmpty = document.querySelector('.videos-empty');
 if (hasVideo && videosEmpty) videosEmpty.remove();
 if (!hasVideo) document.querySelector('.videos')?.remove();
 
+// Instagram-Beiträge (von der Netlify-Funktion zwischengespeichert)
+async function loadInstagram() {
+  const grid = document.getElementById('insta-grid');
+  if (!grid) return;
+  try {
+    const res = await fetch('/api/instagram');
+    if (!res.ok) return;
+    const { posts = [] } = await res.json();
+    if (!posts.length) return;
+    grid.innerHTML = posts.slice(0, 9).map((p) => {
+      const alt = escapeHtml((p.caption || 'Instagram-Beitrag der Blechpartie').split('\n')[0].slice(0, 120));
+      const badge = p.type === 'VIDEO' ? '<span class="insta-badge" aria-hidden="true">▶</span>'
+        : p.type === 'CAROUSEL_ALBUM' ? '<span class="insta-badge" aria-hidden="true">❐</span>' : '';
+      return `<a class="insta-post" href="${escapeHtml(p.permalink)}" target="_blank" rel="noopener">
+        <img src="/api/instagram/img/${encodeURIComponent(p.id)}" alt="${alt}" loading="lazy">${badge}
+      </a>`;
+    }).join('');
+    grid.hidden = false;
+  } catch (err) {
+    // Ohne Feed bleibt nur der Link zu Instagram sichtbar
+  }
+}
+loadInstagram();
+
 // Einfache Lightbox für die Galerie
 document.querySelectorAll('.gallery a').forEach((a) => {
   a.addEventListener('click', (e) => {
