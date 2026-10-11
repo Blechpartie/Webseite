@@ -89,19 +89,49 @@ async function loadInstagram() {
 }
 loadInstagram();
 
-// Einfache Lightbox für die Galerie
-document.querySelectorAll('.gallery a').forEach((a) => {
-  a.addEventListener('click', (e) => {
-    e.preventDefault();
-    const box = document.createElement('div');
-    box.className = 'lightbox';
-    box.setAttribute('role', 'dialog');
-    box.setAttribute('aria-label', 'Bild vergrößert – zum Schließen klicken');
-    box.innerHTML = `<img src="${a.getAttribute('href')}" alt="${a.querySelector('img').alt}">`;
-    const close = () => { box.remove(); document.removeEventListener('keydown', onKey); };
-    const onKey = (ev) => { if (ev.key === 'Escape') close(); };
-    box.addEventListener('click', close);
-    document.addEventListener('keydown', onKey);
-    document.body.appendChild(box);
-  });
-});
+// Galerie: Antippen öffnet eine Diashow, durch die man wischen kann
+const galleryLinks = [...document.querySelectorAll('.gallery a')];
+function openSlideshow(startIndex) {
+  const show = document.createElement('div');
+  show.className = 'slideshow';
+  show.setAttribute('role', 'dialog');
+  show.setAttribute('aria-modal', 'true');
+  show.setAttribute('aria-label', 'Bildergalerie');
+  show.innerHTML = `
+    <button class="ss-btn ss-close" type="button" aria-label="Schließen">✕</button>
+    <button class="ss-btn ss-prev" type="button" aria-label="Vorheriges Bild">‹</button>
+    <button class="ss-btn ss-next" type="button" aria-label="Nächstes Bild">›</button>
+    <div class="ss-counter" aria-live="polite"></div>
+    <div class="ss-track">${galleryLinks.map((a, i) => `
+      <figure class="ss-slide"><img src="${a.getAttribute('href')}" alt="${escapeHtml(a.querySelector('img').alt)}" ${Math.abs(i - startIndex) > 1 ? 'loading="lazy"' : ''}></figure>`).join('')}
+    </div>`;
+  const track = show.querySelector('.ss-track');
+  const counter = show.querySelector('.ss-counter');
+  const current = () => Math.round(track.scrollLeft / track.clientWidth);
+  const update = () => { counter.textContent = `${current() + 1} / ${galleryLinks.length}`; };
+  const go = (i) => track.scrollTo({ left: Math.max(0, Math.min(i, galleryLinks.length - 1)) * track.clientWidth, behavior: 'smooth' });
+  const close = () => {
+    show.remove();
+    document.body.classList.remove('ss-open');
+    document.removeEventListener('keydown', onKey);
+    galleryLinks[current()]?.focus();
+  };
+  const onKey = (e) => {
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowRight') go(current() + 1);
+    if (e.key === 'ArrowLeft') go(current() - 1);
+  };
+  show.querySelector('.ss-close').addEventListener('click', close);
+  show.querySelector('.ss-prev').addEventListener('click', () => go(current() - 1));
+  show.querySelector('.ss-next').addEventListener('click', () => go(current() + 1));
+  // Tippen neben das Bild schließt die Diashow
+  track.addEventListener('click', (e) => { if (e.target.classList.contains('ss-slide')) close(); });
+  track.addEventListener('scroll', update, { passive: true });
+  document.addEventListener('keydown', onKey);
+  document.body.classList.add('ss-open');
+  document.body.appendChild(show);
+  track.scrollLeft = startIndex * track.clientWidth;
+  update();
+  show.querySelector('.ss-close').focus();
+}
+galleryLinks.forEach((a, i) => a.addEventListener('click', (e) => { e.preventDefault(); openSlideshow(i); }));
