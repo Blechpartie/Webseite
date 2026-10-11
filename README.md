@@ -6,10 +6,9 @@ Statische Webseite für **Blechpartie – Das Original** (blechpartie.de), gehos
 
 | Name | HEX | RGB | CMYK |
 |---|---|---|---|
-| Blechpartie Petrol | `#2F6F73` | 47 / 111 / 115 | 78 / 23 / 34 / 4 |
-| Weiß | `#FFFFFF` | 255 / 255 / 255 | 0 / 0 / 0 / 0 |
+| Blechpartie Petrol | `#2F6F73` | 47 / 111 / 115 | 79 / 35 / 45 / 23 |
 
-Nur diese beiden Farben sind erlaubt – Details in der CI: [`docs/CI.md`](docs/CI.md). Die Farben stehen als Variablen oben in `public/css/style.css`.
+Alle Farben stehen als Variablen oben in `public/css/style.css`.
 
 ## Inhalte pflegen
 
