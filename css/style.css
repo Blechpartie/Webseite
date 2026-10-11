@@ -95,7 +95,7 @@ h1, h2, h3, h4 { line-height: 1.2; margin: 0 0 .5em; }
 .videos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
 .video { aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; background: var(--teal-deep); }
 .video iframe { width: 100%; height: 100%; border: 0; }
-.video-consent { position: relative; width: 100%; height: 100%; border: 0; cursor: pointer; color: var(--white); font: inherit; text-align: left; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: .5rem; padding: 1.25rem 57% 1.25rem 1.75rem; background-color: var(--teal); background-size: cover; background-position: right center; }
+.video-consent { position: relative; width: 100%; height: 100%; border: 0; cursor: pointer; color: var(--white); font: inherit; text-align: left; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: .5rem; padding: 1.25rem 57% 1.25rem 1.75rem; background: var(--teal) url(../img/logo-weiss.svg) no-repeat right 6% center / 44% auto; }
 .video-title { font-size: 1.4rem; font-weight: 800; line-height: 1.2; text-shadow: 0 2px 8px rgba(0,0,0,.25); }
 .video-consent .play { width: 56px; height: 56px; flex: none; border-radius: 50%; background: var(--white); color: var(--teal); display: grid; place-items: center; font-size: 1.2rem; padding-left: 4px; box-shadow: 0 6px 20px rgba(0,0,0,.25); transition: transform .2s; }
 .video-consent:hover .play { transform: scale(1.08); }
