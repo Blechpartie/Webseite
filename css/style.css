@@ -69,7 +69,7 @@ h1, h2, h3, h4 { line-height: 1.2; margin: 0 0 .5em; }
 .fact-icon { grid-row: span 2; color: var(--brass); font-size: 1.4rem; line-height: 1.2; }
 .facts strong { color: var(--teal-dark); }
 .facts li > span:last-child { color: var(--muted); font-size: .95rem; }
-.members { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem 1.5rem; }
+.members { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 2rem 1.5rem; }
 .member { text-align: center; }
 .avatar { width: 120px; height: 120px; margin: 0 auto .8rem; border-radius: 50%; background: var(--teal); color: var(--white); display: grid; place-items: center; font-size: 2.1rem; font-weight: 700; letter-spacing: .02em; object-fit: cover; box-shadow: var(--shadow); }
 .member h4 { margin: 0; font-size: 1.05rem; }
