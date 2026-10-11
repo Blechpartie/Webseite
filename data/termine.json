@@ -1,0 +1,15 @@
+[
+  {
+    "datum": "2026-11-14",
+    "uhrzeit": "19:00",
+    "titel": "Beispiel: Wirtshausmusik",
+    "ort": "Gasthaus Musterwirt, Musterstadt",
+    "link": ""
+  },
+  {
+    "datum": "2026-12-05",
+    "uhrzeit": "17:00",
+    "titel": "Beispiel: Weihnachtsmarkt",
+    "ort": "Marktplatz, Musterstadt"
+  }
+]

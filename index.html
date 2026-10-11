@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blechpartie – Das Original</title>
+  <meta name="description" content="Die Blechpartie – Das Original. Blasmusik für Wirtshaus, Festzelt, Hochzeiten und Feiern. Termine, Fotos und Buchungsanfrage.">
+  <meta name="theme-color" content="#2f6f73">
+  <meta property="og:title" content="Blechpartie – Das Original">
+  <meta property="og:description" content="Blasmusik für Wirtshaus, Festzelt, Hochzeiten und Feiern.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://blechpartie.de/">
+  <meta property="og:image" content="https://blechpartie.de/img/galerie/auftritt.jpg">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="logo" aria-label="Blechpartie – zum Seitenanfang">
+        <img src="img/logo-weiss.svg" alt="Blechpartie – Das Original" width="157" height="58">
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav" class="nav">
+        <a href="#ueber-uns">Über uns</a>
+        <a href="#termine">Termine</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#kontakt" class="btn btn-small btn-light">Buchen</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1 class="visually-hidden">Blechpartie – Das Original</h1>
+          <img class="hero-logo" src="img/logo-weiss.svg" alt="" width="970" height="358">
+          <p class="lead">Blasmusik mit Herz und ordentlich Blech – im Wirtshaus, im Festzelt, auf Hochzeiten und überall dort, wo gefeiert wird.</p>
+          <div class="hero-actions">
+            <a href="#kontakt" class="btn btn-light">Jetzt anfragen</a>
+            <a href="#termine" class="btn btn-ghost">Nächste Auftritte</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="img/hero.jpg" alt="Die Blechpartie beim Auftritt im Wirtshaus, vorne die Tuba und das Banner" width="1500" height="2000">
+        </div>
+      </div>
+    </section>
+
+    <!-- Über uns -->
+    <section id="ueber-uns" class="section">
+      <div class="container">
+        <h2 class="section-title">Über uns</h2>
+        <div class="about">
+          <div class="about-text">
+            <!-- TODO: eigenen Text einsetzen (Gründungsjahr, Herkunft, Geschichte …) -->
+            <p>Die Blechpartie ist eine Gruppe von Musikern, die eines verbindet: die Freude an handgemachter Blasmusik – und an der Gemütlichkeit danach.</p>
+            <p>Unser Repertoire reicht von traditioneller Blasmusik über Märsche und Polkas bis hin zu modernen Arrangements. Ob als Stimmungsmacher im Festzelt, zur Brotzeit im Wirtshaus oder als Begleitung beim Sektempfang – wir passen unser Programm an euren Anlass an.</p>
+          </div>
+          <ul class="facts">
+            <li><span class="fact-icon" aria-hidden="true">✦</span><strong>Wirtshaus &amp; Festzelt</strong><span>Zünftige Stimmung von der ersten Maß an</span></li>
+            <li><span class="fact-icon" aria-hidden="true">✦</span><strong>Hochzeit &amp; Feier</strong><span>Vom Sektempfang bis zum letzten Tanz</span></li>
+            <li><span class="fact-icon" aria-hidden="true">✦</span><strong>Von Polka bis Pop</strong><span>Tradition trifft aktuelle Hits</span></li>
+          </ul>
+        </div>
+
+        <h3 class="sub-title">Die Besetzung</h3>
+        <!-- TODO: Namen und Instrumente anpassen. Für Fotos: Bild nach img/mitglieder/ legen und <div class="avatar">…</div> durch <img class="avatar" src="img/mitglieder/name.jpg" alt="Name"> ersetzen. -->
+        <ul class="members">
+          <li class="member"><div class="avatar" aria-hidden="true">B</div><h4>Vorname Name</h4><p>Flügelhorn</p></li>
+          <li class="member"><div class="avatar" aria-hidden="true">B</div><h4>Vorname Name</h4><p>Trompete</p></li>
+          <li class="member"><div class="avatar" aria-hidden="true">B</div><h4>Vorname Name</h4><p>Tenorhorn</p></li>
+          <li class="member"><div class="avatar" aria-hidden="true">B</div><h4>Vorname Name</h4><p>Posaune</p></li>
+          <li class="member"><div class="avatar" aria-hidden="true">B</div><h4>Vorname Name</h4><p>Tuba</p></li>
+          <li class="member"><div class="avatar" aria-hidden="true">B</div><h4>Vorname Name</h4><p>Schlagzeug</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Termine -->
+    <section id="termine" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Termine</h2>
+        <p class="section-intro">Kommt vorbei und feiert mit uns!</p>
+        <ul class="events" id="events" aria-live="polite">
+          <li class="events-empty">Termine werden geladen …</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Galerie -->
+    <section id="galerie" class="section">
+      <div class="container">
+        <h2 class="section-title">Galerie</h2>
+
+        <!-- Weitere Fotos einfach nach img/galerie/ legen und hier einen <figure>-Block ergänzen -->
+        <div class="gallery">
+          <figure class="photo"><a href="img/galerie/auftritt.jpg"><img src="img/galerie/auftritt.jpg" alt="Die Blechpartie spielt im Gewölbe eines Wirtshauses" loading="lazy" width="1050" height="1400"></a></figure>
+          <figure class="photo"><a href="img/galerie/tuba-banner.jpg"><img src="img/galerie/tuba-banner.jpg" alt="Tuba hinter dem Blechpartie-Banner" loading="lazy" width="1050" height="1400"></a></figure>
+          <figure class="photo"><a href="img/galerie/stammtisch.jpg"><img src="img/galerie/stammtisch.jpg" alt="Die Blechpartie gemütlich am Stammtisch, einer im Blechpartie-Hoodie" loading="lazy" width="1050" height="1400"></a></figure>
+          <figure class="photo"><a href="img/galerie/weste.jpg"><img src="img/galerie/weste.jpg" alt="Trachtenweste mit gesticktem Blechpartie-Logo" loading="lazy" width="1050" height="1400"></a></figure>
+        </div>
+
+        <h3 class="sub-title">Videos</h3>
+        <!-- TODO: YouTube-Video-ID in data-youtube eintragen (der Teil nach "watch?v="). Leere Videos werden ausgeblendet. -->
+        <div class="videos">
+          <div class="video" data-youtube="">
+            <button class="video-consent" type="button">
+              <span class="play" aria-hidden="true">▶</span>
+              <span>Video laden</span>
+              <small>Beim Abspielen werden Daten an YouTube übertragen.</small>
+            </button>
+          </div>
+          <div class="video" data-youtube="">
+            <button class="video-consent" type="button">
+              <span class="play" aria-hidden="true">▶</span>
+              <span>Video laden</span>
+              <small>Beim Abspielen werden Daten an YouTube übertragen.</small>
+            </button>
+          </div>
+        </div>
+        <p class="videos-empty">Videos folgen bald – bis dahin gibt's Eindrücke auf <a href="https://www.instagram.com/blechpartie/" rel="noopener" target="_blank">Instagram @blechpartie</a>.</p>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="kontakt" class="section section-dark">
+      <div class="container contact">
+        <div>
+          <h2 class="section-title">Kontakt &amp; Buchung</h2>
+          <p>Ihr plant eine Feier und wollt Live-Musik? Schreibt uns – wir melden uns schnellstmöglich mit einem unverbindlichen Angebot.</p>
+          <ul class="contact-list">
+            <!-- TODO: E-Mail-Adresse prüfen -->
+            <li><span aria-hidden="true">✉</span> <a href="mailto:info@blechpartie.de">info@blechpartie.de</a></li>
+            <li><span aria-hidden="true">◎</span> <a href="https://www.instagram.com/blechpartie/" rel="noopener" target="_blank">@blechpartie</a></li>
+          </ul>
+        </div>
+
+        <form class="form" name="anfrage" method="POST" action="/danke.html" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="anfrage">
+          <p class="hidden"><label>Nicht ausfüllen: <input name="bot-field"></label></p>
+          <div class="form-row">
+            <label>Name*<input type="text" name="name" required autocomplete="name"></label>
+            <label>E-Mail*<input type="email" name="email" required autocomplete="email"></label>
+          </div>
+          <div class="form-row">
+            <label>Datum der Veranstaltung<input type="date" name="datum"></label>
+            <label>Anlass
+              <select name="anlass">
+                <option>Hochzeit</option>
+                <option>Geburtstag</option>
+                <option>Wirtshaus / Festzelt</option>
+                <option>Vereins-/Dorffest</option>
+                <option>Firmenfeier</option>
+                <option>Sonstiges</option>
+              </select>
+            </label>
+          </div>
+          <label>Ort<input type="text" name="ort"></label>
+          <label>Nachricht*<textarea name="nachricht" rows="5" required></textarea></label>
+          <label class="checkbox"><input type="checkbox" name="datenschutz" required> <span>Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Angaben einverstanden.*</span></label>
+          <button type="submit" class="btn btn-light">Anfrage senden</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> Blechpartie – Das Original</p>
+      <nav><a href="https://www.instagram.com/blechpartie/" rel="noopener" target="_blank">Instagram</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
+    </div>
+  </footer>
+</body>
+</html>
