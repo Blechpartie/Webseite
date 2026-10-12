@@ -116,7 +116,7 @@ h1, h2, h3, h4 { line-height: 1.2; margin: 0 0 .5em; }
 .video { aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; background: var(--teal-deep); }
 .video iframe { width: 100%; height: 100%; border: 0; }
 .video-consent { position: relative; width: 100%; height: 100%; border: 0; cursor: pointer; color: var(--white); font: inherit; text-align: left; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: .5rem; padding: 1.25rem 1.75rem; background: var(--teal); overflow: hidden; }
-.video-consent::before { content: ""; position: absolute; inset: 0; background: url(../img/logo-weiss.svg) no-repeat 89% 55% / 57% auto; opacity: .06; pointer-events: none; }
+.video-consent::before { content: ""; position: absolute; inset: 0; background: url(../img/logo-weiss.svg) no-repeat 89% 12% / 57% auto; opacity: .06; pointer-events: none; }
 .video-consent > * { position: relative; }
 .video-title { font-size: 1.4rem; font-weight: 800; line-height: 1.2; text-shadow: 0 2px 8px rgba(0,0,0,.25); }
 .video-consent .play { width: 56px; height: 56px; flex: none; border-radius: 50%; background: var(--white); color: var(--teal); display: grid; place-items: center; font-size: 1.2rem; padding-left: 4px; box-shadow: 0 6px 20px rgba(0,0,0,.25); transition: transform .2s; }
