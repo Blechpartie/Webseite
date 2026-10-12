@@ -75,8 +75,8 @@ h1, h2, h3, h4 { line-height: 1.2; margin: 0 0 .5em; }
 .section-alt { background: var(--teal-light); }
 .section-dark { background: var(--teal); color: var(--white); }
 .section-dark a { color: var(--white); }
-.section-title { font-family: var(--font-script); font-weight: 400; font-size: clamp(2.75rem, 6vw, 4rem); line-height: 1.1; color: var(--teal); position: relative; padding-bottom: .3em; }
-.section-title::after { content: "✦"; display: block; color: var(--brass); font-size: 1.1rem; margin-top: .3em; }
+.section-title { font-family: var(--font-script); font-weight: 400; font-size: clamp(2.75rem, 6vw, 4rem); line-height: 1.1; color: var(--teal); position: relative; padding-bottom: .2em; }
+.section-title::after { content: "✦"; display: inline-block; vertical-align: middle; margin-left: .35em; color: var(--brass); font-family: var(--font); font-size: .4em; line-height: 1; }
 .section-dark .section-title { color: var(--white); }
 .section-intro { color: var(--muted); margin-top: -.5rem; }
 .sub-title { font-family: var(--font-script); font-weight: 400; font-size: clamp(2rem, 4vw, 2.6rem); color: var(--teal-dark); margin-top: 3.5rem; }
