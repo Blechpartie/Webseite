@@ -15,6 +15,23 @@ nav.addEventListener('click', (e) => {
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Besetzung: durchwischbar, am Desktop zusätzlich mit Pfeilen
+const members = document.getElementById('members');
+if (members) {
+  const prev = document.querySelector('.members-prev');
+  const next = document.querySelector('.members-next');
+  const step = () => members.querySelector('.member').offsetWidth + 16;
+  const update = () => {
+    prev.disabled = members.scrollLeft <= 2;
+    next.disabled = members.scrollLeft + members.clientWidth >= members.scrollWidth - 2;
+  };
+  prev.addEventListener('click', () => members.scrollBy({ left: -step(), behavior: 'smooth' }));
+  next.addEventListener('click', () => members.scrollBy({ left: step(), behavior: 'smooth' }));
+  members.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+}
+
 // Termine aus data/termine.json laden – vergangene Termine werden ausgeblendet
 const escapeHtml = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
