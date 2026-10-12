@@ -66,7 +66,7 @@ h1, h2, h3, h4 { line-height: 1.2; margin: 0 0 .5em; }
 .hero { background: radial-gradient(circle at 20% 30%, var(--teal) 0%, var(--teal-dark) 60%, var(--teal-deep) 100%); color: var(--white); overflow: hidden; }
 .hero-inner { display: grid; grid-template-columns: 1.15fr .85fr; gap: 3rem; align-items: center; padding-block: 4rem; }
 .hero-logo { width: min(520px, 100%); margin-bottom: 1.5rem; }
-.lead { font-size: 1.25rem; max-width: 34ch; opacity: .95; }
+.lead { font-size: 1.25rem; max-width: 42ch; opacity: .95; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
 .hero-image img { border-radius: var(--radius); box-shadow: 0 20px 50px rgba(0,0,0,.35); aspect-ratio: 1 / 1; object-fit: cover; transform: rotate(2deg); border: 6px solid var(--white); }
 
