@@ -56,7 +56,9 @@ function parts(t) {
 function cleanTitle(s) {
   return s
     .replace(/^(auftritt|konzert|termin)\s*[:\-–]\s*/i, '')
-    .replace(/\s*[\(\[]?\s*blechpartie\s*[\)\]]?\s*$/i, '')
+    // Gruppenname in Klammern entfernen, z. B. „Kirmes (Blechpartie-Das Original XXL)“
+    .replace(/\s*[\(\[][^\)\]]*blechpartie[^\)\]]*[\)\]]/gi, '')
+    .replace(/\s*[-–]\s*blechpartie.*$/i, '')
     .replace(/^blechpartie\s*[:\-–]\s*/i, '')
     .trim();
 }
