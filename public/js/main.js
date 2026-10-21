@@ -41,9 +41,9 @@ async function loadEvents() {
     // Eigene Termine (data/termine.json) + Auftritte aus Konzertmeister (/api/termine)
     const load = (url) => fetch(url, { cache: 'no-cache' }).then((r) => (r.ok ? r.json() : [])).catch(() => []);
     const [own, km] = await Promise.all([load('data/termine.json'), load('/api/termine')]);
-    const key = (e) => `${e.datum}|${String(e.titel).toLowerCase().replace(/[^a-z0-9äöüß]/g, '')}`;
-    const seen = new Set(own.map(key));
-    const events = [...own, ...km.filter((e) => !seen.has(key(e)))];
+    // Eigene Einträge haben Vorrang: Konzertmeister-Termine am selben Tag werden nicht doppelt gezeigt
+    const ownDays = new Set(own.map((e) => e.datum));
+    const events = [...own, ...km.filter((e) => !ownDays.has(e.datum))];
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     const upcoming = events

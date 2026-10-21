@@ -79,12 +79,10 @@ export function blechpartieTermine(icsText) {
       if (!start) return null;
       const uhrzeit = start.zeit && end?.zeit && end.datum === start.datum && end.zeit !== start.zeit
         ? `${start.zeit}–${end.zeit}` : start.zeit;
-      return {
-        datum: start.datum,
-        uhrzeit,
-        titel: cleanTitle(unescape(e.SUMMARY.value)),
-        ort: e.LOCATION ? unescape(e.LOCATION.value).split(',').slice(0, 2).join(',').trim() : '',
-      };
+      const titel = cleanTitle(unescape(e.SUMMARY.value));
+      const ort = e.LOCATION ? unescape(e.LOCATION.value).split(',').slice(0, 2).join(',').trim() : '';
+      // Ort nicht wiederholen, wenn er schon im Titel steht (z. B. „Festzelt Bietzen“)
+      return { datum: start.datum, uhrzeit, titel, ort: ort && titel.toLowerCase().includes(ort.toLowerCase()) ? '' : ort };
     })
     .filter(Boolean);
 }

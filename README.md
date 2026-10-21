@@ -59,6 +59,6 @@ Der Token gilt 60 Tage und wird von der Funktion automatisch verlängert. Falls 
 
 ## Termine aus Konzertmeister
 
-`netlify/functions/termine.mjs` liest den Konzertmeister-Kalender (iCal) und liefert unter `/api/termine` nur Termine, in denen „Blechpartie“ vorkommt (Titel, Kategorie, Veranstalter oder Beschreibung). Interne Termine wie Proben und abgesagte Termine werden ausgeblendet; übernommen werden nur Datum, Uhrzeit, Titel und Ort. Die Seite zeigt sie zusammen mit `data/termine.json` an, doppelte Einträge (gleiches Datum und gleicher Titel) erscheinen nur einmal.
+`netlify/functions/termine.mjs` liest den Konzertmeister-Kalender (iCal) und liefert unter `/api/termine` nur Termine, in denen „Blechpartie“ vorkommt (Titel, Kategorie, Veranstalter oder Beschreibung). Interne Termine wie Proben und abgesagte Termine werden ausgeblendet; übernommen werden nur Datum, Uhrzeit, Titel und Ort. Die Seite zeigt sie zusammen mit `data/termine.json` an, steht an einem Tag schon ein Eintrag in `data/termine.json`, hat dieser Vorrang und der Konzertmeister-Termin wird nicht zusätzlich gezeigt.
 
 Einrichtung: In Netlify unter *Project configuration → Environment variables* die Variable `KONZERTMEISTER_ICAL_URL` mit dem iCal-Link aus Konzertmeister anlegen. Der Link ist privat und gehört **nicht** ins Repository. Optional: `KONZERTMEISTER_FILTER` ändert den Suchbegriff (Standard: `Blechpartie`).
