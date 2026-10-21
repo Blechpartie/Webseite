@@ -32,14 +32,18 @@ if (members) {
   update();
 }
 
-// Termine aus data/termine.json laden – vergangene Termine werden ausgeblendet
+// Termine laden – vergangene Termine werden ausgeblendet
 const escapeHtml = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 async function loadEvents() {
   const list = document.getElementById('events');
   try {
-    const res = await fetch('data/termine.json', { cache: 'no-cache' });
-    const events = await res.json();
+    // Eigene Termine (data/termine.json) + Auftritte aus Konzertmeister (/api/termine)
+    const load = (url) => fetch(url, { cache: 'no-cache' }).then((r) => (r.ok ? r.json() : [])).catch(() => []);
+    const [own, km] = await Promise.all([load('data/termine.json'), load('/api/termine')]);
+    const key = (e) => `${e.datum}|${String(e.titel).toLowerCase().replace(/[^a-z0-9äöüß]/g, '')}`;
+    const seen = new Set(own.map(key));
+    const events = [...own, ...km.filter((e) => !seen.has(key(e)))];
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     const upcoming = events

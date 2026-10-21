@@ -14,7 +14,7 @@ Alle Farben stehen als Variablen oben in `public/css/style.css`.
 
 | Was | Wo |
 |---|---|
-| Termine | `public/data/termine.json` – vergangene Termine werden automatisch ausgeblendet |
+| Termine | `public/data/termine.json` plus automatisch aus Konzertmeister (siehe unten) – vergangene Termine werden ausgeblendet |
 | Texte, Besetzung | `public/index.html` (Stellen mit `TODO` markiert) |
 | Fotos | nach `public/img/galerie/` legen und in `public/index.html` im Bereich „Galerie“ eintragen |
 | Videos | YouTube-ID in `data-youtube="…"` eintragen (wird erst nach Klick geladen) |
@@ -56,3 +56,9 @@ Einmalige Einrichtung:
 4. **Token bei Netlify hinterlegen:** *Site configuration → Environment variables →* `INSTAGRAM_TOKEN` = der erzeugte Token. Danach neu deployen.
 
 Der Token gilt 60 Tage und wird von der Funktion automatisch verlängert. Falls der Feed doch einmal leer bleibt, einfach einen neuen Token erzeugen und `INSTAGRAM_TOKEN` ersetzen. Ohne Token zeigt die Seite nur den Link zu Instagram.
+
+## Termine aus Konzertmeister
+
+`netlify/functions/termine.mjs` liest den Konzertmeister-Kalender (iCal) und liefert unter `/api/termine` nur Termine, in denen „Blechpartie“ vorkommt (Titel, Kategorie, Veranstalter oder Beschreibung). Interne Termine wie Proben und abgesagte Termine werden ausgeblendet; übernommen werden nur Datum, Uhrzeit, Titel und Ort. Die Seite zeigt sie zusammen mit `data/termine.json` an, doppelte Einträge (gleiches Datum und gleicher Titel) erscheinen nur einmal.
+
+Einrichtung: In Netlify unter *Project configuration → Environment variables* die Variable `KONZERTMEISTER_ICAL_URL` mit dem iCal-Link aus Konzertmeister anlegen. Der Link ist privat und gehört **nicht** ins Repository. Optional: `KONZERTMEISTER_FILTER` ändert den Suchbegriff (Standard: `Blechpartie`).
