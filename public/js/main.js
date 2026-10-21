@@ -32,18 +32,16 @@ if (members) {
   update();
 }
 
-// Termine laden – vergangene Termine werden ausgeblendet
+// Termine aus Konzertmeister laden – vergangene Termine werden ausgeblendet
 const escapeHtml = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 async function loadEvents() {
   const list = document.getElementById('events');
   try {
-    // Eigene Termine (data/termine.json) + Auftritte aus Konzertmeister (/api/termine)
-    const load = (url) => fetch(url, { cache: 'no-cache' }).then((r) => (r.ok ? r.json() : [])).catch(() => []);
-    const [own, km] = await Promise.all([load('data/termine.json'), load('/api/termine')]);
-    // Eigene Einträge haben Vorrang: Konzertmeister-Termine am selben Tag werden nicht doppelt gezeigt
-    const ownDays = new Set(own.map((e) => e.datum));
-    const events = [...own, ...km.filter((e) => !ownDays.has(e.datum))];
+    // Auftritte kommen ausschließlich aus Konzertmeister (Netlify-Funktion /api/termine)
+    const res = await fetch('/api/termine', { cache: 'no-cache' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const events = await res.json();
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     const upcoming = events
