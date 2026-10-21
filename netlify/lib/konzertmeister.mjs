@@ -4,10 +4,12 @@
 
 const TZ = 'Europe/Berlin';
 
-// Nur Termine, in denen dieser Text vorkommt (Titel, Kategorien, Veranstalter, Beschreibung)
+// Konzertmeister schreibt die Gruppe in Klammern hinter den Titel, z. B.
+// „(+) Festzelt Bietzen (Blechpartie-Das Original)“, und die Terminart in die
+// Beschreibung („Auftritt“, „Probe“, „Auftrittsanfrage“, „Sonstiges“ …).
+// Übernommen werden nur Termine dieser Gruppe mit einer dieser Terminarten.
 const FILTER = (process.env.KONZERTMEISTER_FILTER || 'Blechpartie').toLowerCase();
-// Interne Termine ausblenden (Titel beginnt mit einem dieser Wörter)
-const INTERN = /^(probe|registerprobe|gesamtprobe|vorstandssitzung|sitzung|besprechung|treffen)\b/i;
+const TYPEN = (process.env.KONZERTMEISTER_TYPEN || 'Auftritt').split(',').map((t) => t.trim().toLowerCase());
 
 function unfold(text) {
   return text.replace(/\r\n/g, '\n').replace(/\n[ \t]/g, '');
@@ -55,9 +57,12 @@ function parts(t) {
 
 function cleanTitle(s) {
   return s
+    // Zusage-Markierung „(+)“, „(-)“, „(?)“ und „Vorgemerkt:“ entfernen
+    .replace(/^\([+\-?]\)\s*/, '')
+    .replace(/^vorgemerkt\s*:\s*/i, '')
     .replace(/^(auftritt|konzert|termin)\s*[:\-–]\s*/i, '')
-    // Gruppenname in Klammern entfernen, z. B. „Kirmes (Blechpartie-Das Original XXL)“
-    .replace(/\s*[\(\[][^\)\]]*blechpartie[^\)\]]*[\)\]]/gi, '')
+    // Gruppenname in Klammern am Ende entfernen, z. B. „Festzelt Bietzen (Blechpartie-Das Original)“
+    .replace(/\s*\([^()]*\)\s*$/, '')
     .replace(/\s*[-–]\s*blechpartie.*$/i, '')
     .replace(/^blechpartie\s*[:\-–]\s*/i, '')
     .trim();
@@ -68,10 +73,11 @@ export function blechpartieTermine(icsText) {
     .filter((e) => {
       if (e.STATUS && /CANCELLED/i.test(e.STATUS.value)) return false;
       const summary = e.SUMMARY ? unescape(e.SUMMARY.value) : '';
-      if (!summary || INTERN.test(summary)) return false;
-      const hay = [summary, e.CATEGORIES?.value, e.ORGANIZER?.params?.CN, e.DESCRIPTION?.value, e['X-WR-CALNAME']?.value]
-        .filter(Boolean).join(' ').toLowerCase();
-      return hay.includes(FILTER);
+      const gruppe = (summary.match(/\(([^()]*)\)\s*$/) || [])[1] || '';
+      if (!gruppe.toLowerCase().includes(FILTER)) return false;
+      // Terminart = erstes Wort der Beschreibung („Auftritt - Details …“)
+      const art = (e.DESCRIPTION ? unescape(e.DESCRIPTION.value) : '').split(/\s+-\s+|\n/)[0].trim().toLowerCase();
+      return TYPEN.includes(art);
     })
     .map((e) => {
       const start = parts(toDate(e.DTSTART));
