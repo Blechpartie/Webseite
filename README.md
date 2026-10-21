@@ -14,17 +14,11 @@ Alle Farben stehen als Variablen oben in `public/css/style.css`.
 
 | Was | Wo |
 |---|---|
-| Termine | `public/data/termine.json` – vergangene Termine werden automatisch ausgeblendet |
+| Termine | ausschließlich in **Konzertmeister** pflegen (siehe unten) – vergangene Termine werden ausgeblendet |
 | Texte, Besetzung | `public/index.html` (Stellen mit `TODO` markiert) |
 | Fotos | nach `public/img/galerie/` legen und in `public/index.html` im Bereich „Galerie“ eintragen |
 | Videos | YouTube-ID in `data-youtube="…"` eintragen (wird erst nach Klick geladen) |
 | Impressum / Datenschutz | `public/impressum.html`, `public/datenschutz.html` |
-
-Beispiel-Termin:
-
-```json
-{ "datum": "2026-11-14", "uhrzeit": "19:00", "titel": "Wirtshausmusik", "ort": "Gasthaus XY, Ort", "link": "" }
-```
 
 ## Logos
 
@@ -36,7 +30,7 @@ Beispiel-Termin:
 cd public && python3 -m http.server 8000
 ```
 
-(Der Instagram-Bereich zeigt lokal nur den Link – die Beiträge kommen erst auf Netlify.)
+(Instagram-Beiträge und Termine kommen über Netlify-Funktionen und erscheinen daher erst auf Netlify.)
 
 Dann <http://localhost:8000> öffnen.
 
@@ -56,3 +50,9 @@ Einmalige Einrichtung:
 4. **Token bei Netlify hinterlegen:** *Site configuration → Environment variables →* `INSTAGRAM_TOKEN` = der erzeugte Token. Danach neu deployen.
 
 Der Token gilt 60 Tage und wird von der Funktion automatisch verlängert. Falls der Feed doch einmal leer bleibt, einfach einen neuen Token erzeugen und `INSTAGRAM_TOKEN` ersetzen. Ohne Token zeigt die Seite nur den Link zu Instagram.
+
+## Termine aus Konzertmeister
+
+`netlify/functions/termine.mjs` liest den Konzertmeister-Kalender (iCal) und liefert unter `/api/termine` nur **Auftritte der Gruppe „Blechpartie-Das Original“**: Konzertmeister schreibt die Gruppe in Klammern hinter den Titel und die Terminart (Auftritt, Probe, Auftrittsanfrage, Sonstiges) in die Beschreibung. Proben, Anfragen, sonstige und abgesagte Termine sowie Termine anderer Gruppen werden ausgeblendet; übernommen werden nur Datum, Uhrzeit, Titel und Ort. Die Webseite zeigt ausschließlich diese Termine – neue Auftritte also einfach in Konzertmeister anlegen (Gruppe „Blechpartie-Das Original“, Terminart „Auftritt“).
+
+Einrichtung: In Netlify unter *Project configuration → Environment variables* die Variable `KONZERTMEISTER_ICAL_URL` mit dem iCal-Link aus Konzertmeister anlegen. Der Link ist privat und gehört **nicht** ins Repository. Optional: `KONZERTMEISTER_FILTER` ändert die Gruppe (Standard: `Blechpartie`), `KONZERTMEISTER_TYPEN` die Terminarten, kommagetrennt (Standard: `Auftritt`).

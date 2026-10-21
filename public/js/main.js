@@ -32,13 +32,15 @@ if (members) {
   update();
 }
 
-// Termine aus data/termine.json laden – vergangene Termine werden ausgeblendet
+// Termine aus Konzertmeister laden – vergangene Termine werden ausgeblendet
 const escapeHtml = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 async function loadEvents() {
   const list = document.getElementById('events');
   try {
-    const res = await fetch('data/termine.json', { cache: 'no-cache' });
+    // Auftritte kommen ausschließlich aus Konzertmeister (Netlify-Funktion /api/termine)
+    const res = await fetch('/api/termine', { cache: 'no-cache' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const events = await res.json();
     const today = new Date();
     today.setHours(0, 0, 0, 0);
