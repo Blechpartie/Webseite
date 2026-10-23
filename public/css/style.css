@@ -219,6 +219,13 @@ body.ss-open { overflow: hidden; }
   .event { grid-template-columns: 64px 1fr; gap: 1rem; padding: 1rem; }
   .event-date .day { font-size: 1.8rem; }
 }
+/* Besetzung: im breiten Browser alle Musiker nebeneinander, ohne Slider */
+@media (min-width: 861px) {
+  .members { display: grid; grid-template-columns: repeat(7, 1fr); gap: .9rem; overflow: visible; padding-bottom: 0; }
+  .members-nav { display: none; }
+  .member h4 { margin: .75rem .8rem 0; font-size: .98rem; }
+  .member p { margin: 0 .8rem .9rem; font-size: .88rem; }
+}
 @media (hover: none) { .members-nav { display: none; } }
 @media (prefers-reduced-motion: reduce) {
   html, .members { scroll-behavior: auto; }
