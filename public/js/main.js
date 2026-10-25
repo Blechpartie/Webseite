@@ -53,6 +53,7 @@ async function loadEvents() {
       list.innerHTML = '<li class="events-empty">Aktuell stehen keine öffentlichen Termine fest – schaut bald wieder vorbei oder folgt uns auf Instagram.</li>';
       return;
     }
+    addEventSchema(upcoming);
     list.innerHTML = upcoming.map((e) => {
       const month = e.d.toLocaleDateString('de-DE', { month: 'short' }).replace('.', '');
       const weekday = e.d.toLocaleDateString('de-DE', { weekday: 'short' }).replace('.', '');
@@ -67,6 +68,41 @@ async function loadEvents() {
     list.innerHTML = '<li class="events-empty">Die Termine konnten nicht geladen werden.</li>';
   }
 }
+// Auftritte für Google als Veranstaltungen kennzeichnen (schema.org/MusicEvent)
+function berlinOffset(datum) {
+  const d = new Date(datum + 'T12:00:00Z');
+  const name = new Intl.DateTimeFormat('en-US', { timeZone: 'Europe/Berlin', timeZoneName: 'shortOffset' })
+    .formatToParts(d).find((p) => p.type === 'timeZoneName')?.value || 'GMT+1';
+  const h = parseInt(name.replace('GMT', ''), 10) || 1;
+  return `+0${h}:00`;
+}
+function addEventSchema(events) {
+  const data = events.map((e) => {
+    const [von, bis] = String(e.uhrzeit || '').split(/[–-]/).map((t) => t.trim()).filter(Boolean);
+    const tz = berlinOffset(e.datum);
+    const ev = {
+      '@context': 'https://schema.org',
+      '@type': 'MusicEvent',
+      name: `${e.titel} – Blechpartie`,
+      startDate: von ? `${e.datum}T${von}:00${tz}` : e.datum,
+      eventStatus: 'https://schema.org/EventScheduled',
+      eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+      location: { '@type': 'Place', name: e.ort || e.titel, address: e.ort || e.titel },
+      performer: { '@type': 'MusicGroup', '@id': 'https://blechpartie.de/#band', name: 'Blechpartie – Das Original' },
+      organizer: { '@type': 'MusicGroup', name: 'Blechpartie – Das Original', url: 'https://blechpartie.de/' },
+      image: 'https://blechpartie.de/img/teilen.jpg',
+      url: 'https://blechpartie.de/#termine',
+    };
+    if (bis) ev.endDate = `${e.datum}T${bis}:00${tz}`;
+    return ev;
+  });
+  if (!data.length) return;
+  const tag = document.createElement('script');
+  tag.type = 'application/ld+json';
+  tag.textContent = JSON.stringify(data);
+  document.head.appendChild(tag);
+}
+
 loadEvents();
 
 // YouTube erst nach Klick laden (Datenschutz). Videos ohne ID werden ausgeblendet.

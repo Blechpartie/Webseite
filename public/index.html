@@ -6,12 +6,52 @@
   <title>Blechpartie – Das Original</title>
   <meta name="description" content="Blechpartie – Das Original steht seit 2019 für handgemachte Blasmusik mit Charakter. Böhmisch, mährisch, österreichisch und modern – immer live, immer mit Leidenschaft.">
   <meta name="theme-color" content="#2f6f73">
-  <meta property="og:title" content="Blechpartie – Das Original">
-  <meta property="og:description" content="Handgemachte, mundgeblasene böhmisch-mährische Blasmusik aus dem Saarland.">
+  <link rel="canonical" href="https://blechpartie.de/">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Blechpartie – Das Original">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:title" content="Blechpartie – Das Original">
+  <meta property="og:description" content="Handgemachte Blasmusik aus dem Saarland. Böhmisch, mährisch, österreichisch und modern – immer live, immer mit Leidenschaft.">
   <meta property="og:url" content="https://blechpartie.de/">
-  <meta property="og:image" content="https://blechpartie.de/img/galerie/gruppenfoto.jpg">
-  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <meta property="og:image" content="https://blechpartie.de/img/teilen.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Blechpartie – Das Original: Logo und Gruppenfoto der Musikanten in Tracht">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicGroup",
+    "@id": "https://blechpartie.de/#band",
+    "name": "Blechpartie – Das Original",
+    "alternateName": "Blechpartie",
+    "url": "https://blechpartie.de/",
+    "logo": "https://blechpartie.de/img/icon-512.png",
+    "image": "https://blechpartie.de/img/teilen.jpg",
+    "description": "Handgemachte Blasmusik aus dem Saarland. Seit 2019 verbindet die Blechpartie böhmisch-mährische Klassiker, österreichische Blasmusik, moderne Titel und virtuose Solostücke zu einem abwechslungsreichen Live-Programm.",
+    "foundingDate": "2019",
+    "genre": ["Blasmusik", "Böhmische Blasmusik", "Volksmusik"],
+    "foundingLocation": { "@type": "Place", "name": "Saarland, Deutschland" },
+    "email": "info@blechpartie.de",
+    "telephone": "+49 152 04761148",
+    "sameAs": ["https://www.instagram.com/blechpartie/"],
+    "member": [
+      { "@type": "Person", "name": "Niklas Klostermann" },
+      { "@type": "Person", "name": "Cornel Hahnenberg" },
+      { "@type": "Person", "name": "Tim Hoff" },
+      { "@type": "Person", "name": "Nico Henn" },
+      { "@type": "Person", "name": "Lukas Ewen" },
+      { "@type": "Person", "name": "Nicolas Huckert" },
+      { "@type": "Person", "name": "Daniel Johannes" }
+    ]
+  }
+  </script>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" href="fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/lobster-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
 </head>
@@ -47,7 +87,7 @@
           </div>
         </div>
         <div class="hero-image">
-          <img src="img/hero.jpg" alt="Gruppenfoto der Blechpartie in Tracht im Gewölbe eines Wirtshauses" width="1200" height="1200">
+          <img src="img/hero.webp" alt="Gruppenfoto der Blechpartie in Tracht im Gewölbe eines Wirtshauses" width="900" height="900" fetchpriority="high">
         </div>
       </div>
     </section>
@@ -78,15 +118,15 @@
             <button type="button" class="members-next" aria-label="Nächste Musiker">›</button>
           </div>
         </div>
-        <!-- Fotos: quadratisch (600×600) nach img/mitglieder/ legen und hier eintragen -->
+        <!-- Fotos: quadratisch (600×600, .webp) nach img/mitglieder/ legen und hier eintragen -->
         <ul class="members" id="members">
-          <li class="member"><img class="avatar" src="img/mitglieder/niklas-klostermann.jpg" alt="Niklas Klostermann am Flügelhorn" width="600" height="600" loading="lazy"><h4>Niklas Klostermann</h4><p>Flügelhorn / Trompete</p></li>
-          <li class="member"><img class="avatar" src="img/mitglieder/cornel-hahnenberg.jpg" alt="Cornel Hahnenberg am Flügelhorn" width="600" height="600" loading="lazy"><h4>Cornel Hahnenberg</h4><p>Flügelhorn / Trompete</p></li>
-          <li class="member"><img class="avatar" src="img/mitglieder/tim-hoff.jpg" alt="Tim Hoff an der Trompete" width="600" height="600" loading="lazy"><h4>Tim Hoff</h4><p>Flügelhorn / Trompete</p></li>
-          <li class="member"><img class="avatar" src="img/mitglieder/nico-henn.jpg" alt="Nico Henn am Tenorhorn" width="600" height="600" loading="lazy"><h4>Nico Henn</h4><p>Tenorhorn</p></li>
-          <li class="member"><img class="avatar" src="img/mitglieder/lukas-ewen.jpg" alt="Lukas Ewen am Tenorhorn" width="600" height="600" loading="lazy"><h4>Lukas Ewen</h4><p>Tenorhorn</p></li>
-          <li class="member"><img class="avatar" src="img/mitglieder/nicolas-huckert.jpg" alt="Nicolas Huckert an der Tuba" width="600" height="600" loading="lazy"><h4>Nicolas Huckert</h4><p>Tuba</p></li>
-          <li class="member"><img class="avatar" src="img/mitglieder/daniel-johannes.jpg" alt="Daniel Johannes am Schlagzeug" width="600" height="600" loading="lazy"><h4>Daniel Johannes</h4><p>Schlagzeug</p></li>
+          <li class="member"><img class="avatar" src="img/mitglieder/niklas-klostermann.webp" alt="Niklas Klostermann am Flügelhorn" width="600" height="600" loading="lazy"><h4>Niklas Klostermann</h4><p>Flügelhorn / Trompete</p></li>
+          <li class="member"><img class="avatar" src="img/mitglieder/cornel-hahnenberg.webp" alt="Cornel Hahnenberg am Flügelhorn" width="600" height="600" loading="lazy"><h4>Cornel Hahnenberg</h4><p>Flügelhorn / Trompete</p></li>
+          <li class="member"><img class="avatar" src="img/mitglieder/tim-hoff.webp" alt="Tim Hoff an der Trompete" width="600" height="600" loading="lazy"><h4>Tim Hoff</h4><p>Flügelhorn / Trompete</p></li>
+          <li class="member"><img class="avatar" src="img/mitglieder/nico-henn.webp" alt="Nico Henn am Tenorhorn" width="600" height="600" loading="lazy"><h4>Nico Henn</h4><p>Tenorhorn</p></li>
+          <li class="member"><img class="avatar" src="img/mitglieder/lukas-ewen.webp" alt="Lukas Ewen am Tenorhorn" width="600" height="600" loading="lazy"><h4>Lukas Ewen</h4><p>Tenorhorn</p></li>
+          <li class="member"><img class="avatar" src="img/mitglieder/nicolas-huckert.webp" alt="Nicolas Huckert an der Tuba" width="600" height="600" loading="lazy"><h4>Nicolas Huckert</h4><p>Tuba</p></li>
+          <li class="member"><img class="avatar" src="img/mitglieder/daniel-johannes.webp" alt="Daniel Johannes am Schlagzeug" width="600" height="600" loading="lazy"><h4>Daniel Johannes</h4><p>Schlagzeug</p></li>
         </ul>
       </div>
     </section>
@@ -107,15 +147,15 @@
       <div class="container">
         <h2 class="section-title">Galerie</h2>
 
-        <!-- Weitere Fotos: großes Bild nach img/galerie/, quadratisches Vorschaubild (480×480) nach img/galerie/klein/, dann hier einen <figure>-Block ergänzen -->
+        <!-- Weitere Fotos (als .webp): großes Bild nach img/galerie/, quadratisches Vorschaubild (480×480) nach img/galerie/klein/, dann hier einen <figure>-Block ergänzen -->
         <div class="gallery">
-          <figure class="photo"><a href="img/galerie/gruppenfoto.jpg"><img src="img/galerie/klein/gruppenfoto.jpg" alt="Gruppenfoto der Blechpartie in Tracht mit Instrumenten" loading="lazy" width="480" height="480"></a></figure>
-          <figure class="photo"><a href="img/galerie/aufspielen.jpg"><img src="img/galerie/klein/aufspielen.jpg" alt="Die Blechpartie spielt sitzend auf der Musikantenbühne unter dem bemalten Gewölbe" loading="lazy" width="480" height="480"></a></figure>
-          <figure class="photo"><a href="img/galerie/haende-hoch.jpg"><img src="img/galerie/klein/haende-hoch.jpg" alt="Die Musikanten reißen nach dem Stück die Arme hoch" loading="lazy" width="480" height="480"></a></figure>
-          <figure class="photo"><a href="img/galerie/auftritt.jpg"><img src="img/galerie/klein/auftritt.jpg" alt="Die Blechpartie spielt im Gewölbe eines Wirtshauses" loading="lazy" width="480" height="480"></a></figure>
-          <figure class="photo"><a href="img/galerie/im-stehen.jpg"><img src="img/galerie/klein/im-stehen.jpg" alt="Die Blechpartie spielt im Stehen auf der Bühne" loading="lazy" width="480" height="480"></a></figure>
-          <figure class="photo"><a href="img/galerie/tuba-banner.jpg"><img src="img/galerie/klein/tuba-banner.jpg" alt="Tuba hinter dem Blechpartie-Banner" loading="lazy" width="480" height="480"></a></figure>
-          <figure class="photo"><a href="img/galerie/probe.jpg"><img src="img/galerie/klein/probe.jpg" alt="Die Blechpartie mit Max Obermüller beim Probeseminar" loading="lazy" width="480" height="480"></a></figure>
+          <figure class="photo"><a href="img/galerie/gruppenfoto.webp"><img src="img/galerie/klein/gruppenfoto.webp" alt="Gruppenfoto der Blechpartie in Tracht mit Instrumenten" loading="lazy" width="480" height="480"></a></figure>
+          <figure class="photo"><a href="img/galerie/aufspielen.webp"><img src="img/galerie/klein/aufspielen.webp" alt="Die Blechpartie spielt sitzend auf der Musikantenbühne unter dem bemalten Gewölbe" loading="lazy" width="480" height="480"></a></figure>
+          <figure class="photo"><a href="img/galerie/haende-hoch.webp"><img src="img/galerie/klein/haende-hoch.webp" alt="Die Musikanten reißen nach dem Stück die Arme hoch" loading="lazy" width="480" height="480"></a></figure>
+          <figure class="photo"><a href="img/galerie/auftritt.webp"><img src="img/galerie/klein/auftritt.webp" alt="Die Blechpartie spielt im Gewölbe eines Wirtshauses" loading="lazy" width="480" height="480"></a></figure>
+          <figure class="photo"><a href="img/galerie/im-stehen.webp"><img src="img/galerie/klein/im-stehen.webp" alt="Die Blechpartie spielt im Stehen auf der Bühne" loading="lazy" width="480" height="480"></a></figure>
+          <figure class="photo"><a href="img/galerie/tuba-banner.webp"><img src="img/galerie/klein/tuba-banner.webp" alt="Tuba hinter dem Blechpartie-Banner" loading="lazy" width="480" height="480"></a></figure>
+          <figure class="photo"><a href="img/galerie/probe.webp"><img src="img/galerie/klein/probe.webp" alt="Die Blechpartie mit Max Obermüller beim Probeseminar" loading="lazy" width="480" height="480"></a></figure>
         </div>
 
         <h3 class="sub-title">Videos</h3>
@@ -175,7 +215,7 @@
     <section id="merch" class="section">
       <div class="container merch">
         <figure class="merch-image">
-          <img src="img/merch.jpg" alt="Blechpartie-Merch: T-Shirt, Hoodie, Cap, Bierglas, Aufnäher und Notenständer-Fahne in Petrol mit weißem Logo" loading="lazy" width="1400" height="933">
+          <img src="img/merch.webp" alt="Blechpartie-Merch: T-Shirt, Hoodie, Cap, Bierglas, Aufnäher und Notenständer-Fahne in Petrol mit weißem Logo" loading="lazy" width="1100" height="733">
           <span class="merch-badge">Demnächst erhältlich</span>
         </figure>
         <div>

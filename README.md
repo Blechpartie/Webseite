@@ -16,7 +16,7 @@ Alle Farben stehen als Variablen oben in `public/css/style.css`.
 |---|---|
 | Termine | ausschließlich in **Konzertmeister** pflegen (siehe unten) – vergangene Termine werden ausgeblendet |
 | Texte, Besetzung | `public/index.html` (Stellen mit `TODO` markiert) |
-| Fotos | nach `public/img/galerie/` legen und in `public/index.html` im Bereich „Galerie“ eintragen |
+| Fotos | als `.webp` nach `public/img/galerie/` (groß) und `public/img/galerie/klein/` (480×480) legen und in `public/index.html` im Bereich „Galerie“ eintragen |
 | Videos | YouTube-ID in `data-youtube="…"` eintragen (wird erst nach Klick geladen) |
 | Impressum / Datenschutz | `public/impressum.html`, `public/datenschutz.html` |
 
