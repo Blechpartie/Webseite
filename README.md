@@ -34,6 +34,10 @@ cd public && python3 -m http.server 8000
 
 Dann <http://localhost:8000> öffnen.
 
+## Browser-Cache
+
+CSS und JS werden in den HTML-Seiten mit `?v=dev` eingebunden. Beim Netlify-Build ersetzt `scripts/version.sh` das durch Datum und Commit (z. B. `?v=20261027-265b85d`). Browser behalten die Dateien ein Jahr, laden nach jedem Deploy aber sofort die neue Version. Neue CSS/JS-Dateien deshalb immer mit `?v=dev` einbinden.
+
 ## Kontaktformular
 
 Das Formular nutzt [Netlify Forms](https://docs.netlify.com/forms/setup/). Nach dem ersten Deploy im Netlify-Dashboard unter *Forms → Form notifications* eine E-Mail-Benachrichtigung einrichten.
