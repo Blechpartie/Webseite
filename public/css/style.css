@@ -68,6 +68,9 @@ h1, h2, h3, h4 { line-height: 1.2; margin: 0 0 .5em; }
 .hero-logo { width: min(520px, 100%); margin-bottom: 1.5rem; }
 .lead { font-size: 1.25rem; max-width: 42ch; opacity: .95; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+.hero-instagram { display: inline-flex; align-items: center; gap: .5rem; margin-top: 1.4rem; color: var(--white); font-weight: 600; opacity: .9; text-decoration: none; transition: opacity .2s; }
+.hero-instagram:hover { opacity: 1; }
+.hero-instagram > span:last-child { text-decoration: underline; text-underline-offset: 5px; }
 .hero-image img { border-radius: var(--radius); box-shadow: 0 20px 50px rgba(0,0,0,.35); aspect-ratio: 1 / 1; object-fit: cover; transform: rotate(2deg); border: 6px solid var(--white); }
 
 /* Sections */
@@ -221,9 +224,11 @@ body.ss-open { overflow: hidden; }
   .hero-logo { margin-inline: auto; }
   .lead { margin-inline: auto; }
   .hero-actions { justify-content: center; }
+  .hero-instagram { font-size: .9rem; white-space: nowrap; }
   .hero-image { max-width: 340px; margin-inline: auto; }
   .section { padding-block: 3.5rem; }
 }
+@media (max-width: 360px) { .hero-instagram { font-size: .8rem; } }
 @media (max-width: 520px) {
   .form-row { grid-template-columns: 1fr; }
   .form { padding: 1.25rem; }
