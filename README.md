@@ -36,7 +36,7 @@ Dann <http://localhost:8000> öffnen.
 
 ## Browser-Cache
 
-CSS und JS werden in den HTML-Seiten mit `?v=dev` eingebunden. Beim Netlify-Build ersetzt `scripts/version.sh` das durch Datum und Commit (z. B. `?v=20261027-265b85d`). Browser behalten die Dateien ein Jahr, laden nach jedem Deploy aber sofort die neue Version. Neue CSS/JS-Dateien deshalb immer mit `?v=dev` einbinden.
+CSS und JS werden in den HTML-Seiten mit `?v=dev` eingebunden. Beim Netlify-Build ersetzt `scripts/version.sh` das durch Datum und Uhrzeit des Builds (z. B. `?v=20261027-1432`). Browser behalten die Dateien ein Jahr, laden nach jedem Deploy aber sofort die neue Version. Neue CSS/JS-Dateien deshalb immer mit `?v=dev` einbinden.
 
 ## Kontaktformular
 
