@@ -190,6 +190,8 @@ body.ss-open { overflow: hidden; }
 .footer-social:hover { background: var(--white); color: var(--teal-deep) !important; border-color: var(--white); }
 .ig-icon { flex: none; display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--white); }
 .ig-icon img { width: 20px; height: 20px; }
+.ig-icon-small { width: 1.3em; height: 1.3em; margin-inline: -.15em -.1em; vertical-align: middle; position: relative; top: -.08em; }
+.ig-icon-small img { width: .9em; height: .9em; }
 
 /* Unterseiten (Impressum, Datenschutz, Danke) */
 .page { padding-block: 4rem; max-width: 760px; }
